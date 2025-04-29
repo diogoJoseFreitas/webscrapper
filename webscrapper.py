@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 
-class webscrapper(webdriver.Chrome):
+class Webscrapper(webdriver.Chrome):
     def __init__(
         self, options: Options = None, service: Service = None, keep_alive: bool = True
     ) -> None:
@@ -28,9 +28,9 @@ class webscrapper(webdriver.Chrome):
         return obj
 
     def click_button(
-        self, element_bata: str, wait: float = 5, by: str = By.CSS_SELECTOR
+        self, element_data: str, wait: float = 5, by: str = By.CSS_SELECTOR
     ):
-        button = self.get_element(element_bata, wait, by)
+        button = self.get_element(element_data, wait, by)
         if not button:
             return False
         else:
@@ -52,3 +52,9 @@ class webscrapper(webdriver.Chrome):
             else:
                 obj.send_keys(value)
                 return True
+
+    def wait_for_object(self, element_data: str, wait: float = 5, by=By.CSS_SELECTOR, loop_times: int = 5):
+        for i in range(loop_times):
+            if self.get_element(element_data, wait, by):
+                return True
+        return False
