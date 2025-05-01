@@ -6,3 +6,4 @@ Python Selenium based framework to make easier automations on websites.
 ```bash
 curl -O https://github.com/diogoJoseFreitas/webscrapper/blob/main/webscrapper.py
 ```
+it copies webscrapper.py file to your project for start using.
